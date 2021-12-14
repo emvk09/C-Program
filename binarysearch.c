@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-  int n, i, j, temp, search, first, last, middle;
+  int n, i, j, temp= 0, search, first, last, middle;
 
   printf("\nEnter size of array: \n");
   

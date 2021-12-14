@@ -16,18 +16,21 @@ int main()
 
   for(i= 0; i< n; i++)
   {
-      for (j= i; j< n; j++)
+    for (j= i; j< n; j++)
+    {
+      if(arr[i] >= arr[j])
       {
-        if(arr[i] >= arr[j])
-        {
-          temp= arr[i];
-          arr[i]= arr[j];
-          arr[j]= temp;
-        }
+        temp= arr[i];
+        arr[i]= arr[j];
+        arr[j]= temp;
       }
+    }
   }
 
-  printf("\nThe ordered array is now arranged with new index positions.");
+  printf("\nThe new ordered array is: \n");
+  for(i= 0; i < n; i++) 
+    printf("%d \n", arr[i]);
+  
   printf("\nEnter value to find from the array: ");
   scanf("%d", & search);
   first= 0;

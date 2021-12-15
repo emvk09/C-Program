@@ -1,1 +1,1 @@
-# This repository includes all the C programs necessary for 2nd sem examinations.
+# This repository includes all the C programs necessary for sem examinations.

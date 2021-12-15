@@ -5,10 +5,11 @@
    Product dimension: X x q
 */
 
-#include<stdio.h>    
+#include<stdio.h>  
+#define N 10
 int main()
 {  
-    int a [10][10], b [10][10], mul [10][10], x, y, p, q, i, j, k, sum;    
+    int a [N][N], b [N][N], mul [N][N], x, y, p, q, i, j, k, sum;    
     printf("\nEnter the number of rows of 1st matrix:");    
     scanf("%d", & x);    
     printf("Enter the number of columns of 1st matrix:");    
@@ -39,7 +40,7 @@ int main()
             scanf("%d", & b [i][j]);    
     }    
     
-    /* Here we qre including another variable K and its for loop because, its value changes in each and every case
+    /* Here we are including another variable K and its for-loop because, its value changes in each and every case
        eg: a[0][0]+b[0][0]      a[0][1]+b[1][0]
 
        The range of k value is upto the Condition to Check value

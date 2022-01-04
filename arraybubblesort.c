@@ -10,22 +10,22 @@ void main()
 
     // ENTER LOOP
 
-    for(i= 1; i<= n; i++)
+    for(i= 0; i< n; i++)
     {
         scanf("%d", & num[i]);
     }
 
     // RETURN LOOP ANALYSING
     
-    for(i= 1; i<= n; i++)
+    for(i= 0; i< n; i++)
     {
-        for (j= i; j<= n; j++)
+        for(j= 0; j< n-i-1; j++)
         {
-            if(num[i] >= num[j])
+            if ( num[j] >= num[j+ 1])
             {
-                temp= num[i];
-                num[i]= num[j];
-                num[j]= temp;
+                temp= num[j];
+                num[j]= num[j+ 1];
+                num[j+ 1]= temp;
             }
         }
     }
@@ -33,16 +33,9 @@ void main()
     // RETURN LOOP PRINTING
 
     printf("The list of elements in asending order is: \n");
-    for(i= 1; i <= n; i++) 
+    for(i= 0; i < n; i++) 
     {   
         printf("%d \n", num[i]);  
     }  
     getch();
 }
-
-
-
-
-
-
-

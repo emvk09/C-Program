@@ -33,12 +33,12 @@ int main()
     // Return loop
 
     printf("The sum of the matrices is: \n");
-     for(i= 0; i< x; i++)
+    for(i= 0; i< x; i++)
     {
         for(j= 0; j< y; j++)
         {
            sum[i][j]= mat1[i][j]+ mat2[i][j];
-           printf("sum[%d][%d]= %d \t", i, j, sum[i][j]);
+           printf("%d\t", sum[i][j]);
         }
         printf("\n");
     }

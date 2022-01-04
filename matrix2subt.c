@@ -38,7 +38,7 @@ int main()
         for(j= 1; j<= y; j++)
         {
            sum[i][j]= mat1[i][j]- mat2[i][j];
-           printf("sum[%d][%d]= %d \t", i, j, sum[i][j]);
+           printf("%d\t", sum[i][j]);
         }
         printf("\n");
     }

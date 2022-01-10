@@ -5,14 +5,17 @@ int main()
     printf("Enter the number of elements:");
     scanf("%d",&num);
     printf("The first %d Fibonacci series are:\n",num);
-    printf("%d",ini);
-    printf("%d",fin);
-    for(i=3;i<=num;i++)
+    if (num == 1)
+        printf("%d", ini);
+    else if (num != 0)
+        printf("%d %d", ini, fin);
+
+    for(i= 3; i<= num; i++)
     {
-        ans=ini+fin;
-        printf("%d",ans);
-        ini=fin;
-        fin=ans;
+        ans= ini + fin;
+        printf(" %d", ans);
+        ini= fin;
+        fin= ans;
     }
     return 0;
 }

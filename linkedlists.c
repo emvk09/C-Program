@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include <stdlib.h>
+
 void insertBegining();
 void insertEnd();
-void insertAfter();
+void insertPosition();
 void display();
 
 struct node
@@ -57,7 +58,7 @@ void main()
     // Display list
     display();
 
-    printf("\nOption 1: insertBegining\nOption 2: insertEnd\nOption 3: insertAfter\n");
+    printf("\nOption 1: insertBegining\nOption 2: insertEnd\nOption 3: insertPosition\n");
     printf("Enter the option number: ");
     scanf("%d", & opt);
     switch (opt)
@@ -66,7 +67,7 @@ void main()
                 break;
         case 2: insertEnd();
                 break;
-        case 3: insertAfter();
+        case 3: insertPosition();
                 break;
         default: 
                 printf("\n");
@@ -112,7 +113,7 @@ void insertEnd()
     temp->next= newnode;                                                    
 }
 
-void insertAfter()
+void insertPosition()
 {
     int pos, i= 1;
     printf("Enter the position:");

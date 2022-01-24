@@ -3,7 +3,10 @@
 
 void insertBegining();
 void insertEnd();
-void insertPosition();
+void insertAfterPosition();
+void deleteBegining();
+void deleteEnd();
+void deletePosition();
 void display();
 
 struct node
@@ -22,7 +25,7 @@ int count= 0;
 void main()
 {
     int choice= 1, opt;
-    while(choice==1)
+    while(choice == 1)
     {
     /*  All the nodes have to created only when needed. We cannot specify how much memory is to be allocated in the begining 
         of the program. It needs to be dynamically allocated each time a node is created. This memory allocation is done by malloc.
@@ -51,14 +54,14 @@ void main()
                             /*VIM*/
         }
 
-        printf("Do you want to continue (0, 1) ?\n");
+        printf("Enter 1 to continue the input, else Enter 0\n");
         scanf("%d", & choice);
     }
 
     // Display list
     display();
 
-    printf("\nOption 1: insertBegining\nOption 2: insertEnd\nOption 3: insertPosition\n");
+    printf("\nOption 1: insertBegining\nOption 2: insertEnd\nOption 3: insertPosition\nOption 4: deleteBegining\nOption 5: deleteEnd\nOption 6: deletePosition\n");
     printf("Enter the option number: ");
     scanf("%d", & opt);
     switch (opt)
@@ -67,7 +70,13 @@ void main()
                 break;
         case 2: insertEnd();
                 break;
-        case 3: insertPosition();
+        case 3: insertAfterPosition();
+                break;
+        case 4: deleteBegining();
+                break;
+        case 5: deleteEnd();
+                break;
+        case 6: deletePosition();
                 break;
         default: 
                 printf("\n");
@@ -81,14 +90,14 @@ void main()
 void display()
 {
     printf("List:\n");
-    for (temp= head; temp!= 0; temp= temp-> next)           /*temp= 0, refers to the NULL node address after the last node in the list. 
-        we can also write struct node* temp= head             So the loop stops before reaching the NULL node.
-                                                              Here the list gets displayed but the final address of temp gets updated to NULL*/
+    for (temp= head; temp!= 0; temp= temp-> next)   /*temp= 0, refers to the NULL node address after the last node in the list. 
+                                                    So the loop stops before reaching the NULL node.
+                                                    Here the list gets displayed but the final address of temp gets updated to NULL*/
     {
         printf("%d\n", temp-> data);
         count++;
     }
-    printf("The total nodes created=  %d", count);
+    printf("The total nodes=  %d", count);
 }
 
 void insertBegining()
@@ -113,13 +122,13 @@ void insertEnd()
     temp->next= newnode;                                                    
 }
 
-void insertPosition()
+void insertAfterPosition()
 {
     int pos, i= 1;
     printf("Enter the position:");
     scanf("%d", & pos);
     if (pos > count)
-        printf("Invalid position");
+        printf("Invalid position\n");
     else
     {
         newnode= (struct node *) malloc(sizeof(struct node));
@@ -129,5 +138,73 @@ void insertPosition()
                                                             However, finally, address of temp gets updated to selected node's address  */
         newnode->next= temp->next;
         temp->next= newnode;
+    }
+}
+
+void deleteBegining()
+{
+    if (head == 0)
+        printf("The list is empty.");
+    else
+    {
+        temp= head; /*  Now temp, head as well as the 1st node to be  deleted have the same address.
+                        So literally, 1st node->next= head->next= temp->next  */
+        head= temp->next;
+        free(temp); /*  Even though the link is detached form list, the memory of the node must be returned to the heap.
+                        This is done by free function.  */
+    }
+}
+
+void deleteEnd()
+{
+    // to do this we need 2 pointers
+    // one pointer to traverse the list and point to the last node: *temp
+    // another pointer to point to the 2nd last node: *prevnode
+    struct node *prevnode;
+    if (head == 0)
+        printf("The list is empty.");
+    else
+    {
+        // traversing through list
+        for(temp= head; temp->next!= 0; temp=temp->next)
+            prevnode= temp;    /*Here the loop stops on reaching the 2nd last node. 
+                                So the temp pointer inside the loop will have the address of 2nd last node
+                                This address is copied to  prevnode pointer
+                                However, later on in the update statement, temp gets updated to the last node's address. */
+
+        //Sometimes, in the case of only 1 node, the above loop will not excecute. So there is no use of prevnode.
+        // This condition will be same as deleteBegining()
+        if (temp == head)
+            deleteBegining();
+        else
+        {
+            prevnode->next= 0;
+            free(temp);
+        }
+    }
+}
+
+void deletePosition()
+{
+    struct node *prevnode;
+    int pos, i= 1;
+    printf("Enter the position:");
+    scanf("%d", & pos);
+    if (pos > count)
+        printf("Invalid position\n");
+    else if (head == 0)
+        printf("The list is empty.");
+    else
+    {
+        for(temp= head; i< pos; temp= temp->next, i++)
+            prevnode= temp;
+        
+        if (temp == head)
+            deleteBegining();
+        else
+        {
+            prevnode->next= temp->next;
+            free(temp);
+        }
     }
 }

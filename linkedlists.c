@@ -81,9 +81,9 @@ void main()
 void display()
 {
     printf("List:\n");
-    for (temp= head; temp!= 0; temp= temp-> next) /*temp= 0, refers to the NULL node address after the last node in the list. 
-                                                    So the loop stops before reaching the NULL node.
-                                                    Here the list gets displayed but the final address of temp gets updated to NULL*/
+    for (temp= head; temp!= 0; temp= temp-> next)           /*temp= 0, refers to the NULL node address after the last node in the list. 
+        we can also write struct node* temp= head             So the loop stops before reaching the NULL node.
+                                                              Here the list gets displayed but the final address of temp gets updated to NULL*/
     {
         printf("%d\n", temp-> data);
         count++;

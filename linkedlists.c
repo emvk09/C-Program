@@ -61,7 +61,7 @@ void main()
     // Display list
     display();
 
-    printf("\nOption 1: insertBegining\nOption 2: insertEnd\nOption 3: insertPosition\nOption 4: deleteBegining\nOption 5: deleteEnd\nOption 6: deletePosition\n");
+    printf("\nOption 1: insertBegining\nOption 2: insertEnd\nOption 3: insertAfterPosition\nOption 4: deleteBegining\nOption 5: deleteEnd\nOption 6: deletePosition\n");
     printf("Enter the option number: ");
     scanf("%d", & opt);
     switch (opt)

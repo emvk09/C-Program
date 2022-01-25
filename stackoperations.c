@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define Maxsize 2
+#define Maxsize 5
 
 void push();
 void pop();

@@ -80,7 +80,7 @@ void peek()
 
 void display()
 {
-	if (top ==- 1)
+	if (isEmpty())
 		printf("The stack is empty.\n");
 	else
 	{

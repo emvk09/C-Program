@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include <stdlib.h>
 
-void insertBegining();
-void insertEnd();
-void insertAfterPosition();
-void deleteBegining();
-void deleteEnd();
-void deletePosition();
 void display();
+void insertAtFront();
+void insertAtEnd();
+void insertAfterPosition();
+void deleteAtFront();
+void deleteAtEnd();
+void deletePosition();
 
 struct node
 {
@@ -61,25 +61,25 @@ void main()
     // Display list
     display();
 
-    printf("\nOption 1: insertBegining\nOption 2: insertEnd\nOption 3: insertAfterPosition\nOption 4: deleteBegining\nOption 5: deleteEnd\nOption 6: deletePosition\n");
+    printf("\nOption 1: insertAtFront\nOption 2: insertAtEnd\nOption 3: insertAfterPosition\nOption 4: deleteAtFront\nOption 5: deleteAtEnd\nOption 6: deletePosition\n");
     printf("Enter the option number: ");
     scanf("%d", & opt);
     switch (opt)
     {
-        case 1: insertBegining();
+        case 1: insertAtFront();
                 break;
-        case 2: insertEnd();
+        case 2: insertAtEnd();
                 break;
         case 3: insertAfterPosition();
                 break;
-        case 4: deleteBegining();
+        case 4: deleteAtFront();
                 break;
-        case 5: deleteEnd();
+        case 5: deleteAtEnd();
                 break;
         case 6: deletePosition();
                 break;
         default: 
-                printf("\n");
+                printf("Invalid Option\n");
     }
 
     // Reset count to zero and Display
@@ -97,10 +97,10 @@ void display()
         printf("%d\n", temp-> data);
         count++;
     }
-    printf("The total nodes=  %d", count);
+    printf("Total nodes=  %d", count);
 }
 
-void insertBegining()
+void insertAtFront()
 {
     newnode= (struct node *) malloc(sizeof(struct node));
     printf("Enter the data:");
@@ -109,7 +109,7 @@ void insertBegining()
     head= newnode;
 }
 
-void insertEnd()
+void insertAtEnd()
 {
     newnode= (struct node *) malloc(sizeof(struct node));
     printf("Enter the data:");
@@ -141,10 +141,10 @@ void insertAfterPosition()
     }
 }
 
-void deleteBegining()
+void deleteAtFront()
 {
     if (head == 0)
-        printf("The list is empty.");
+        printf("The list is Empty.\n");
     else
     {
         temp= head; /*  Now temp, head as well as the 1st node to be  deleted have the same address.
@@ -155,14 +155,14 @@ void deleteBegining()
     }
 }
 
-void deleteEnd()
+void deleteAtEnd()
 {
     // to do this we need 2 pointers
     // one pointer to traverse the list and point to the last node: *temp
     // another pointer to point to the 2nd last node: *prevnode
     struct node *prevnode;
     if (head == 0)
-        printf("The list is empty.");
+        printf("The list is Empty.\n");
     else
     {
         // traversing through list
@@ -173,9 +173,9 @@ void deleteEnd()
                                 However, later on in the update statement, temp gets updated to the last node's address. */
 
         //Sometimes, in the case of only 1 node, the above loop will not excecute. So there is no use of prevnode.
-        // This condition will be same as deleteBegining()
+        // This condition will be same as deleteAtFront()
         if (temp == head)
-            deleteBegining();
+            deleteAtFront();
         else
         {
             prevnode->next= 0;
@@ -193,14 +193,14 @@ void deletePosition()
     if (pos > count)
         printf("Invalid position\n");
     else if (head == 0)
-        printf("The list is empty.");
+        printf("The list is Empty.\n");
     else
     {
         for(temp= head; i< pos; temp= temp->next, i++)
             prevnode= temp;
         
         if (temp == head)
-            deleteBegining();
+            deleteAtFront();
         else
         {
             prevnode->next= temp->next;

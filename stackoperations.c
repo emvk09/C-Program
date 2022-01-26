@@ -12,13 +12,15 @@ void display();
 
 int top= -1, *stack;// we cannot now initialize stack[Maxsize] array, 
 					//since Maxsize is not yet initialized 
+
 int main()
 {
 	int option, x;
 	printf("Enter the size of array: ");
 	scanf("%d", & Maxsize);
 	stack = (int *) malloc(sizeof(int) * Maxsize);  //Here, (4 bytes x Maxsize times) memory will be created and these memory addresses will be
-													//given to the pointer called stack. Thus with multiple memory addresses, the pointer becomes an array
+								//given to the pointer called stack. Thus with multiple memory addresses, the pointer becomes an array
+	
 	while(1)
 	{
 		printf("\nOption 1: Push\nOption 2: Pop\nOption 3: peek\nOption 4: display\nOption 5: Exit\n");

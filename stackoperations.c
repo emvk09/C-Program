@@ -3,22 +3,22 @@
 
 int Maxsize; /* Global variables can be initialzed only in main or inside a function */
 
-void push();
+void push(int);
 void pop();
 void peek();
 int isEmpty();
 int isFull();
 void display();
 
-int top= -1, *stack; /* we cannot now initialize stack[Maxsize] array, 
-						since Maxsize is not yet initialized */
+int top= -1, *stack;// we cannot now initialize stack[Maxsize] array, 
+					//since Maxsize is not yet initialized 
 int main()
 {
 	int option, x;
 	printf("Enter the size of array: ");
 	scanf("%d", & Maxsize);
-	stack = (int *) malloc(sizeof(int) * Maxsize);  /* Here, (4 bytes x Maxsize times) memory will be created and these memory addresses will be
-							given to the pointer called stack. Thus with multiple memory addresses, the pointer becomes an array*/
+	stack = (int *) malloc(sizeof(int) * Maxsize);  //Here, (4 bytes x Maxsize times) memory will be created and these memory addresses will be
+													//given to the pointer called stack. Thus with multiple memory addresses, the pointer becomes an array
 	while(1)
 	{
 		printf("\nOption 1: Push\nOption 2: Pop\nOption 3: peek\nOption 4: display\nOption 5: Exit\n");
@@ -39,7 +39,6 @@ int main()
 			case 5: exit(0);
 			default:
 					printf("Invalid option. Try again\n");
-					
 		}
 	}
 	return 0;
@@ -79,10 +78,10 @@ void pop()
 }
 
 void peek()
-	{
-		if ( !isEmpty())
-			printf("Peeked element: %d\n", stack[top]);
-	}
+{
+	if (!isEmpty())
+		printf("Peeked element: %d\n", stack[top]);
+}
 
 void display()
 {
@@ -90,7 +89,7 @@ void display()
 		printf("The stack is empty.\n");
 	else
 	{
-		printf("Stack: \n");
+		printf("Stack:\n");
 		for(int i= top; i>= 0; i--)
 			printf("%d\n", stack[i]);
 	}

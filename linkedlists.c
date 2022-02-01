@@ -54,7 +54,7 @@ void main()
                             /*VIM*/
         }
 
-        printf("Enter 1 to continue the input, else Enter 0\n");
+        printf("Enter 1 to continue the input, else Enter 0: ");
         scanf("%d", & choice);
     }
 
@@ -64,6 +64,7 @@ void main()
     printf("\nOption 1: insertAtFront\nOption 2: insertAtEnd\nOption 3: insertAfterPosition\nOption 4: deleteAtFront\nOption 5: deleteAtEnd\nOption 6: deletePosition\n");
     printf("Enter the option number: ");
     scanf("%d", & opt);
+    printf("\n");
     switch (opt)
     {
         case 1: insertAtFront();

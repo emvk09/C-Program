@@ -20,7 +20,7 @@ int main()
     printf("Enter the coefficients of the 2nd polynomial: \n");
     for(i= deg2; i>= 0; i--)
     {
-        printf("y ^ %d: ", i);
+        printf("x ^ %d: ", i);
         scanf("%d", & pol2[i]);
     }
 
@@ -66,7 +66,7 @@ int add(int arr1[], int arr2[], int d1, int d2)
 
     printf("\nThe sum of the polynomial is:\n");
     for(j= resdeg; j>= 0; j--)
-        printf("%dz^%d\t", respol[j], j);
+        printf("%dx^%d\t", respol[j], j);
 
     return 0;
 }

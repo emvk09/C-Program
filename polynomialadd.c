@@ -33,6 +33,7 @@ int add(int arr1[], int arr2[], int d1, int d2)
     maxdeg= (d1 > d2) ? d1: d2;
     mindeg= (d1 < d2) ? d1: d2;
 
+    // find the resultant polynomial degree
     resdeg= maxdeg;
 
     if (d1 == d2)

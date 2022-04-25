@@ -38,7 +38,7 @@ int add(int arr1[], int arr2[], int d1, int d2)
 
     if (d1 == d2)
     {
-        for (j= maxdeg; j> 0; j--)
+        for (j= maxdeg; j>= 0; j--)
         if (arr1[j] == -arr2[j])
             resdeg--;
         else

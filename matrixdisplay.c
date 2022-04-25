@@ -10,7 +10,7 @@ void main()
     int mat[x][y];
     for(i=1;i<=x;i++)
     {
-        printf("Enter elements in row %d: \n", i);
+        // printf("Enter elements in row %d: \n", i);
         for(j= 1; j<= y; j++)
         {
             scanf("%d", & mat[i][j]);
@@ -20,7 +20,8 @@ void main()
     {
         for(j= 1; j<= y; j++)
         {
-            printf("mat[%d][%d]= %d \t", i, j, mat[i][j]);
+            // printf("mat[%d][%d]= %d \t", i, j, mat[i][j]);
+            printf("%d ", mat[i][j]);
         }
         printf("\n");
     }

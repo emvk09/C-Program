@@ -6,10 +6,9 @@
 */
 
 #include<stdio.h> 
-#define N 10   
 int main()
 {  
-    int a [N][N], b [N][N], mul [N][N], x, y, p, q, i, j, k;    
+    int x, y, p, q, i, j, k;    
     printf("\nEnter the number of rows of 1st matrix:");    
     scanf("%d", & x);    
     printf("Enter the number of columns of 1st matrix:");    
@@ -20,6 +19,8 @@ int main()
     printf("Enter the number of columns of 2nd matrix:");    
     scanf("%d", & q);
     
+    int a [x][y], b [p][q], mul [x][q];
+
     if(y != p)
     {
         printf("\nMatrix multiplication is not possible.");
@@ -51,7 +52,7 @@ int main()
     {    
         for(j= 0; j< q; j++)    
         {    
-            mul[i][j] = 0;     
+            mul[i][j] = 0;  // this is done to clear the dunmb values already present in the given position of the array   
             for(k= 0; k< y; k++)    /*we can also write k< p*/  
                 mul[i][j] += a [i][k] * b [k][j];
             printf("%d\t", mul [i][j]);
@@ -66,5 +67,5 @@ int main()
 //             printf("%d\t", mul [i][j]);     
 //         printf("\n");    
 //     }    
-//     return 0;  
-// }  
+    return 0;  
+}  

@@ -7,7 +7,7 @@ int main()
     printf("The first %d Fibonacci series are:\n",num);
     if (num == 1)
         printf("%d", ini);
-    else if (num != 0)
+    else if (num >= 2)
         printf("%d %d", ini, fin);
 
     for(i= 3; i<= num; i++)

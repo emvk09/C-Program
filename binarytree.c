@@ -12,7 +12,7 @@ void insert(struct Node **, int );
 void preOrder(struct Node *);
 void inOrder(struct Node *);
 void postOrder(struct Node *);
-
+struct Node * search(struct Node *, int);
 
 int main()
 {
@@ -43,6 +43,8 @@ int main()
     inOrder(root);
     printf("\nPostorder: ");
     postOrder(root);
+
+    printf("The element 4 is found at %d", search(root, 4));
 }
 
 // here rt is taken as a double pointer since CALL BY REFERENCE is used from the main function 
@@ -100,4 +102,16 @@ void postOrder(struct Node *rt)
         postOrder(rt->right);
         printf("%d  ", rt->data);
     }
+}
+
+struct Node * search(struct Node *rt, int key)
+{
+    if(rt == 0)
+        return rt;
+    else if(key == rt->data)
+        return rt;
+    else if(key< rt->data)
+        return search(rt->left, key);
+    else if(key> rt->data)
+        return search(rt->right, key);
 }
